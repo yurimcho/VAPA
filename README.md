@@ -36,6 +36,7 @@ Have a question, suggestion, problem, or just want to say hi? send us email
 - 입거수리/선저 Cleaning 적기 예측
 - 연료절감 효과분석 및 관리 Man hour 감소 가능
 - 연료사용량 Alert
+- 성능 타켓 설정과 동형선 비교를 통하여 연료절감
 
 중장기 적으로 Speed Optimisation & Route Optimisation => 자율 운항을 위한 원천 기술
 
