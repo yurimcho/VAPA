@@ -27,3 +27,16 @@ Next, clone this repository by opening a terminal and typing the following comma
 
 # Question and support
 Have a question, suggestion, problem, or just want to say hi? send us email 
+
+# 선사 요구 사항
+정확한 성능 예측 바탕으로 하여 하기 사항을 수행하고자 함
+- 영업 채산 예측(Basic Data 신뢰성 향상)
+- 대선 Premium 확보
+- Speed Claim 최소화,
+- 입거수리/선저 Cleaning 적기 예측
+- 연료절감 효과분석 및 관리 Man hour 감소 가능
+- 연료사용량 Alert
+
+중장기 적으로 Speed Optimisation & Route Optimisation => 자율 운항을 위한 원천 기술
+
+추가로, 수치 해석을 기반으로 한 정확한 성능 분석을 위해서는 CCTV 와 라이더/레이터를 통한 기상 현상 분석과 선박 모션 분석 필요
