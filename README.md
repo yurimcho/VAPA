@@ -38,6 +38,6 @@ Have a question, suggestion, problem, or just want to say hi? send us email
 - 연료사용량 Alert
 - 성능 타켓 설정과 동형선 비교를 통하여 연료절감
 
-중장기 적으로 Speed Optimisation & Route Optimisation => 자율 운항을 위한 원천 기술
+중장기 적으로 Speed Optimisation & Route Optimisation => 자율 운항을 위한 원천 기술...
 
 추가로, 수치 해석을 기반으로 한 정확한 성능 분석을 위해서는 CCTV 와 라이더/레이터를 통한 기상 현상 분석과 선박 모션 분석 필요
