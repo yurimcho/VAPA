@@ -34,7 +34,6 @@ class Datablock:
         self.StdE_A = StandardError_angle
 
     # values : dataframe 전체
-    # field name : filter 할 필드 이름
     def run(self, values):
         sTime = values.iloc[0,0] # 시작시간 가져옴
         t = sTime 
@@ -42,13 +41,10 @@ class Datablock:
         tenBlock = values[df.TIME_STAMP < sTime + tenM] # 조건 인덱싱으로 첫 10분 간격의 데이터 추출
 
         resultBlock = pd.DataFrame(columns=values.columns, index=values.index) # filtering 되지 않은 data 저장 
-        #resultBlock = pd.DataFrame
-        #resultBlock = None
 
         i = 0
         while len(tenBlock) > 0: #data수가 0보다 많으면 계산 수행   
-            #Chauvenet's filter 
-                   
+            #Chauvenet's filter                   
             M = self.Cha.Chauvent(tenBlock['SPEED_VG'] ) # DataFilter class 내의 Chauvent def. 실행
             M &= self.Cha.Chauvent(tenBlock['SPEED_LW']) # Longitudinal Water Speed    
             M &= self.Cha.Chauvent(tenBlock['SHAFT_POWER']) # from shaft power meter[kW]
@@ -162,7 +158,7 @@ if __name__ == '__main__':
     df = pd.read_csv('sample.csv') # csv로 부르기
     del df['Unnamed: 0']
     df['TIME_STAMP'] = pd.to_datetime( df['TIME_STAMP'] )
-'''
+    '''
     # 2. data 정렬(혹시, sorting이 안되어 있을수도 있으니...시간순으로 오름차순 sorting)
     df = df.sort_values(["TIME_STAMP"], ascending = [True]) # ascending = [True] : 오름차순 / [False] : 내림차순
     #print(df.head(5)) # 정렬확인
