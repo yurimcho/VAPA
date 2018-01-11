@@ -5,8 +5,15 @@ Filtering된 data를 받아와서 성능해석하는 파일임.
 import pymssql
 import numpy as np
 import pandas as pd
+import sys
+import os
 import math
 import DataFilter as DF # DataFilter.py의 모듈을 가져옴
+sys.path.append(os.path.join(sys.path[0],'data_process'))
+sys.path.append(os.path.join(sys.path[0],'data_analysis'))
+sys.path.append(os.path.join(sys.path[0],'helper'))
+import datain as di
+import dataout as do
 
 
 class CalPerformance:
@@ -51,25 +58,26 @@ class CalPerformance:
         pass
 
 
-if __name__ == '__main__':
-    # data 준비
-    # 1. data 불러오기
-    #datain = di.Init('3FFB8','2017-02-22','2017-02-25') # server에서 불러오기(하루 data임. 소장님께서 비교 항차기간 결정후 수정 예정)
-    df = datain.queryAll(isShuffle=False, isPD=True, meanTime = 0)
-    df = Filter.df_AftFilter # Filter에서 가져오는 방법
-    '''
+if __name__ == '__main__':    
+    # data 준비    
+    # 1. data 불러오기    
+    datain = di.Init('3FFB8','2017-02-22','2017-02-25') # server에서 불러오기(하루 data임. 소장님께서 비교 항차기간 결정후 수정 예정)    
+    df = datain.queryAll(isShuffle=False, isPD=True, meanTime = 0)        
+    '''   
     df = pd.read_csv('sample.csv') # csv로 부르기
-    del df['Unnamed: 0']
-    df['TIME_STAMP'] = pd.to_datetime( df['TIME_STAMP'] )
-    '''
-    # 2. data 정렬(혹시, sorting이 안되어 있을수도 있으니...시간순으로 오름차순 sorting)
-    df = df.sort_values(["TIME_STAMP"], ascending = [True]) # ascending = [True] : 오름차순 / [False] : 내림차순
-    #print(df.head(5)) # 정렬확인
+    del df['Unnamed: 0']    
+    df['TIME_STAMP'] = pd.to_datetime( df['TIME_STAMP'] )   
+    '''          
     
-    f = DF.DataFilter() #인스턴스 정의, DataFilter class실행
-    datablock = DF.Datablock(f,f,f,f) # Datablock class init 실행 (값->DataFilter의 함수 받음) 
-    df2 = datablock.run(df) # datablock의 run def 실행
-    
-    A = CalPerformance()  #인스턴스 정의
-    #A_df = A.wind_correction(0)
+    # 2. data 정렬(혹시, sorting이 안되어 있을수도 있으니...시간순으로 오름차순 sorting)  
+    df = df.sort_values(["TIME_STAMP"], ascending = [True]) 
+    # ascending = [True] : 오름차순 / [False] : 내림차순    
+    #print(df.head(5)) # 정렬확인     
+           
+    f = DF.DataFilter() #인스턴스 정의, DataFilter class실행    
+    datablock = DF.Datablock(f,f,f,f) # Datablock class init 실행 (값->DataFilter의 함수 받음)     
+    df2 = datablock.run(df) # datablock의 run def 실행        
+           
+    A = CalPerformance()  #인스턴스 정의   
+    #A_df = A.wind_correction(0)    
     #print(A_df)
