@@ -23,9 +23,6 @@ import pandas as pd
 import sys
 import os
 import math
-sys.path.append(os.path.join(sys.path[0],'data_process'))
-sys.path.append(os.path.join(sys.path[0],'data_analysis'))
-sys.path.append(os.path.join(sys.path[0],'helper'))
 import datain as di
 import dataout as do
 
